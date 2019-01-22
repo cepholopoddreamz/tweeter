@@ -5,28 +5,52 @@
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="./vendor/normalize-4.1.1.css" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,700i" rel="stylesheet">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/layout.css" type="text/css" />
+
+     <!-- customized CSS -->
+     <link rel="stylesheet" href="./styles/nav.css" type="text/css" />
+
+     <!-- tweet CSS -->
+     <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="./scripts/app.js"></script>
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="./images/bird.png">
       <span class="header">Tweeter</span>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <div class="textcontainer">
+      <p class="textpadding"></p>
+      <section class="new-tweet">
+        <div class ="titlespace">
+        <h2>Compose Tweet</h2>
+        
+      </div>
+      <div class="postarea">
+        <form action="#" method="POST" class="tweetform">
+          <textarea name="text" class="tweettextarea" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+        </div>
+      </section>
+    </div>
     </main>
 
   </body>

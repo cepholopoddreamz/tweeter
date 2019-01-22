@@ -17,7 +17,29 @@ html {
 body {
   margin: 0;
   color: #244751;
-  background-color: #eee;
+  background-color: whitel
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  padding: 0;
+}
+
+main {
+  width: 450px;
+  height: 400px;
+  background-color:  #eee;
+  margin-top: 140px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+main.container{
+  border-radius: 25px;
+}
+
+p.textpadding  {
+  padding: 1.4em;
+  text-align: left;
+
 }
 
 /*
