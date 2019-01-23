@@ -20,14 +20,14 @@ body {
   background-color: whitel
   font-family: 'Open Sans', sans-serif;
   text-align: left;
-  padding: 0;
+  
 }
 
 main {
   width: 450px;
-  height: 400px;
+  height: 200px;
   background-color:  #eee;
-  margin-top: 140px;
+
   text-align: center;
   margin: 0 auto;
 }

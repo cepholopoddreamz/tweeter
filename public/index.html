@@ -23,30 +23,41 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="./scripts/app.js"></script>
+
+       <!-- Character Counting -->
+       <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="./images/bird.png">
+      <img class="logo" src="images/bird.png">
       <span class="header">Tweeter</span>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <div class="textcontainer">
-      <p class="textpadding"></p>
+      
       <section class="new-tweet">
         <div class ="titlespace">
         <h2>Compose Tweet</h2>
-        
+        <hr>
       </div>
       <div class="postarea">
-        <form action="#" method="POST" class="tweetform">
-          <textarea name="text" class="tweettextarea" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
-          <span class="counter">140</span>
+        <form action="/tweets/" method="POST" class="tweetform">
+          
+          <textarea name="text" class="tweettextarea" id= "hittest" placeholder="What are you humming about?">
+
+          </textarea>
+        </div>
+          <div class="buttonsbelow">
+          <input type="submit" class="tweetsubmit" value="Tweet">
+
+          <span class="counter" id="textcounter">140</span>
+        
         </form>
         </div>
       </section>
