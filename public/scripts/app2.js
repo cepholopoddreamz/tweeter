@@ -22,21 +22,21 @@ var tweety_the_tweet = {
 
 
 
-function createTweetElement (thingy) {
+function createTweetElement (tweets) {
   var testkey = tweety_the_tweet.content.text;
  
   // console.log(thingy['user']['name']);
   // console.log(thingy.user.name);
   // console.log(thingy.user.avatars.small);
-
-  $('article.box2').append(
+// before you create tweets container it should /// 
+  $('#tweets-container').append(
     `<article class="box2" style="opacity: 0.4;">
     <header class="titlespace">
-      <img class="userlogo" src="${thingy.user.avatars.small}">
-      <span class="id">${thingy.user.handle}</span>
+      <img class="userlogo" src="${tweets.user.avatars.small}">
+      <span class="id">${tweets.user.handle}</span>
     </header>
     <div class="tweetresponse">
-      ${thingy.content.text}
+      ${tweets.content.text}
     </div>
     <footer class="buttonsbelow">empty footer</footer>
   </article>`
@@ -44,7 +44,41 @@ function createTweetElement (thingy) {
 }
 
 $(document).ready(function() {
-
 createTweetElement(tweety_the_tweet);
-
 });
+
+// responsible for taking in an array of tweet objects
+
+function renderTweets(tweets) {
+
+  tweets.forEach( function())
+// loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+
+}
+
+function createTweetElement(tweet) {
+  let $tweet = $('#tweet-container').addClass('tweet');
+  // ...
+  return $tweet;
+}
+
+
+
+
+/*
+$(document).ready(function() {
+createTweetElement(tweety_the_tweet);
+});
+
+// responsible for taking in an array of tweet objects
+
+function renderTweets (/*arryofobj*/
+
+//passes that whole jquery thing through the function
+
+
+//$(#tweets-container).append(/*arryofobj*/);
+
+//let $tweet = $('<article>').addClass('tweet');renderTweets(apples)*/
