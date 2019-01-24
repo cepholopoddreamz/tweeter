@@ -41,7 +41,7 @@ function createTweetElement (tweets) {
     <footer id="tweetfooter"><p class="tinytype">${tweets.created_at}</p></footer>
   </article>
   </section>`
-  )
+  );
 }
 
 
@@ -99,7 +99,6 @@ const data = [
 ];
 
 function renderTweets(tweets) {
-
   var username
   var userhandle
   var useravatar
@@ -107,7 +106,6 @@ function renderTweets(tweets) {
   var createdate
 
   for (var tweetdeets of tweets) {
-//the paramater passing through the render tweets function is what you also use as the word for looping through in the for of
     createTweetElement(tweetdeets);
     tweetrender = tweetdeets;
     console.log(tweetrender);
@@ -116,22 +114,12 @@ function renderTweets(tweets) {
     useravatar = tweetrender.user.avatars.small;
     contenttext = tweetrender.content.text;
     createdate = tweetrender.created_at;
-
-
   }
- 
 }
 
 // $(document).ready(function(){
 //   renderTweets(data);
 // }) /// this is important --- remember to wrap your function call - if it's using jquery - in this document ready function that is jquery specific
-
-
-//targeting this:
-
-//<input type="submit" class="tweetsubmit" value="Tweet">
-
-//It will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
 
 $(document).ready(function(){
   // var $button = $('.tweetsubmit');
@@ -147,7 +135,6 @@ $(document).ready(function(){
       dataType: 'json'
       //key names are pre-defined/necessary wordings
     }
-
     $.ajax(options)
     .done(function (response) {
       console.log(response);
@@ -157,24 +144,8 @@ $(document).ready(function(){
     }).always(function(){
       console.log('request completed');
     });
-
-    //done fail always are convention namings and it is expecting a response to parse
-    
-    //this gets the tweets from the server
-
-    //done - once it gets a response it's executed
-    
-  }
-
+  };
   loadtweets()
+
 });
 
-
-
-//the json structure is going to get saved in response
-
-
-
-
-
-//The one difference is that you are requesting and handling a JSON response instead of an HTML response.
