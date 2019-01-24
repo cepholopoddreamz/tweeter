@@ -24,13 +24,8 @@ var tweety_the_tweet = {
 
 function createTweetElement (tweets) {
   var testkey = tweety_the_tweet.content.text;
- 
-  // console.log(thingy['user']['name']);
-  // console.log(thingy.user.name);
-  // console.log(thingy.user.avatars.small);
-// before you create tweets container it should /// 
   $('#tweets-container').append(
-    `<article class="box2" style="opacity: 0.4;">
+    `<article class="box2">
     <header class="titlespace">
       <img class="userlogo" src="${tweets.user.avatars.small}">
       <span class="id">${tweets.user.handle}</span>
@@ -43,26 +38,30 @@ function createTweetElement (tweets) {
   )
 }
 
+
 $(document).ready(function() {
 createTweetElement(tweety_the_tweet);
 });
 
-// responsible for taking in an array of tweet objects
+// // ---------------------
 
-function renderTweets(tweets) {
 
-  tweets.forEach( function())
-// loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
+//responsible for taking in an array of tweet objects
 
-}
+// function renderTweets(tweets) {
 
-function createTweetElement(tweet) {
-  let $tweet = $('#tweet-container').addClass('tweet');
-  // ...
-  return $tweet;
-}
+//   tweets.forEach( function())
+// // loops through tweets
+//     // calls createTweetElement for each tweet
+//     // takes return value and appends it to the tweets container
+
+// }
+
+// function createTweetElement(tweet) {
+//   let $tweet = $('#tweet-container').addClass('tweet');
+//   // ...
+//   return $tweet;
+// }
 
 
 
