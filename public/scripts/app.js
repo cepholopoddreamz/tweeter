@@ -21,80 +21,64 @@ var tweety_the_tweet = {
 };
 
 
-
-function createTweetElement (tweet_passed_as_parameter){
-// var newPetElement = `<p>${item.name}</p>`
-    // Apend this to the page
-    // $petsContainer.append(newPetElement)
-    var testkey = tweety_the_tweet.content.text;
-
-
-    
-    
-  //var text$ = document.getElementById('.tweetresponse');
-  $ ('main.container').append("<h1>testing</h1>");
-  //$ (text$).append("<p>testing</p>");
-  $('<article>').append(`<p>testing ${testkey}</p>`);
-
-
-  //$('<article>').append($tweet);
-
+function createTweetElement (tweets) {
+  var testkey = tweety_the_tweet.content.text;
+  $('#tweets-container').append(
+    `<article class="box2">
+    <header id ="titlespace2">
+      <img class="userlogo" src="${tweets.user.avatars.small}">
+      <h2 id="username">${tweets.user.name}</h2>
+      <span class="id">${tweets.user.handle}</span>
+    </header>
+    <div class="tweetresponse">
+      ${tweets.content.text}
+    </div>
+    <footer id="tweetfooter"><p class="tinytype">empty footer</p></footer>
+  </article>
+  </section>`
+  )
 }
 
+
 $(document).ready(function() {
-
 createTweetElement(tweety_the_tweet);
-
 });
-// var bob = 'img1.jpg'
 
-// $('main').append('<img src="'+bob+''">')
-// $('main').append(`<img src="${bob}">`)
-
-// var $tweet = $("<article>").addClass("tweet");
+// // ---------------------
 
 
+//responsible for taking in an array of tweet objects
 
+// function renderTweets(tweets) {
 
-
-//when i use the function: 
-/////$(document).ready(function() {
-
-//$(document).ready(function() {?
-
-
-// function reqListener () {
-//   $articles = document.querySelector("<articles>") /// does this need to be .tweetresponse?
-//   console.log(this.responseText)
-//   $articles.innerHTML = this.responseText
-// }
-
-// function createTweetElement (){
-
+//   tweets.forEach( function())
+// // loops through tweets
+//     // calls createTweetElement for each tweet
+//     // takes return value and appends it to the tweets container
 
 // }
 
-//? $(document).ready(function() {
- // var text$ = document.getElementById('hittest');
- 
- 
- //var $tweet = $(text$).addClass("tweet");
-
-
-
-
-// {
-//   "user": {
-//     "name": "Newton",
-//     "avatars": {
-//       "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-//       "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-//       "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-//     },
-//     "handle": "@SirIsaac"
-//   },
-//   "content": {
-//     "text": "If I have seen further it is by standing on the shoulders of giants"
-//   },
-//   "created_at": 1461116232227
+// function createTweetElement(tweet) {
+//   let $tweet = $('#tweet-container').addClass('tweet');
+//   // ...
+//   return $tweet;
 // }
+
+
+
+
+/*
+$(document).ready(function() {
+createTweetElement(tweety_the_tweet);
+});
+
+// responsible for taking in an array of tweet objects
+
+function renderTweets (/*arryofobj*/
+
+//passes that whole jquery thing through the function
+
+
+//$(#tweets-container).append(/*arryofobj*/);
+
+//let $tweet = $('<article>').addClass('tweet');renderTweets(apples)*/
