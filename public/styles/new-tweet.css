@@ -9,15 +9,31 @@ span.counter {
   float: right;
 }
 
-.newtweet {
+span.id {
+  /*margin: 0 auto;*/
   text-align: right;
+  float: right;
+  margin-right: 1.3em;
+  
+}
+
+.newtweet {
+  /*text-align: right;*/
 }
 
 .titlespace {
   text-align: left;
   padding-left: 1.6em;
   padding-bottom: 0em;
-  padding-top: 1.4em;
+  padding-top: 0.8em;
+  /*text-decoration: underline;*/
+}
+
+.tweetheader {
+  text-align: left;
+  padding-left: 1.6em;
+  padding-bottom: 0em;
+  padding-top: 0.8em;
   /*text-decoration: underline;*/
 }
 
@@ -29,6 +45,7 @@ span.counter {
   padding-left: 1.6em;
   padding-right: 1.6em;
   width: inherit;
+  text-align: left;
 }
 
 hr {
@@ -41,3 +58,15 @@ hr {
  
   }
 
+ .tweetresponse { 
+  background-color: #fff;
+  /*height: 50px; by not assigning a fixed height it will auto change its size flexably according to the content inside*/
+  overflow-wrap: break-word;
+  text-align: left;
+  padding: 0.5em;
+ }
+
+ img.userlogo {
+   width: 4em;
+   height: 4em;
+ }

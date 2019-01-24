@@ -25,9 +25,8 @@ body {
 
 main {
   width: 450px;
-  height: 200px;
+  height: 180px;
   background-color:  #eee;
-
   text-align: center;
   margin: 0 auto;
 }
