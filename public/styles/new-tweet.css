@@ -69,7 +69,9 @@ span.id {
   text-align: left;
   float: left;
   border-top: 1px solid grey;
-
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background:#fff;
 }
 
 hr {
@@ -84,11 +86,15 @@ hr {
 
  .tweetresponse { 
   background-color: #fff;
-  /*height: 50px; by not assigning a fixed height it will auto change its size flexably according to the content inside*/
   overflow-wrap: break-word;
   text-align: left;
   padding: 0.5em;
   float: left;
+  width: 100%;
+  min-height: 60px;
+  padding-left: 1.6em;
+  padding-top: 0.3em;
+  padding-right: 1.6em;
  }
 
  img.userlogo {

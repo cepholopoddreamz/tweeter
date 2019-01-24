@@ -20,6 +20,11 @@ var tweety_the_tweet = {
   created_at: 1461116232227
 };
 
+// var exacttime = moment(1461116232227).startOf('hour').fromNow(); 
+
+// console.log(exacttime);
+
+
 
 function createTweetElement (tweets) {
   var testkey = tweety_the_tweet.content.text;
@@ -33,7 +38,7 @@ function createTweetElement (tweets) {
     <div class="tweetresponse">
       ${tweets.content.text}
     </div>
-    <footer id="tweetfooter"><p class="tinytype">empty footer</p></footer>
+    <footer id="tweetfooter"><p class="tinytype">${tweets.created_at}</p></footer>
   </article>
   </section>`
   )
@@ -41,7 +46,7 @@ function createTweetElement (tweets) {
 
 
 $(document).ready(function() {
-createTweetElement(tweety_the_tweet);
+createTweetElement(tweety_the_tweet)
 });
 
 // // ---------------------
@@ -74,6 +79,7 @@ const data = [
       "text": "Je pense , donc je suis"
     },
     "created_at": 1461113959088
+    //milliseconds //
   },
   {
     "user": {
@@ -94,79 +100,81 @@ const data = [
 
 function renderTweets(tweets) {
 
-  for (var tweetdeets in data) {
-    tweetrender = data[tweetdeets];
+  var username
+  var userhandle
+  var useravatar
+  var contenttext
+  var createdate
 
-    //console.log(tweetrender);
-    console.log(tweetrender.user.name);
-    console.log(tweetrender.user.name);
-    console.log(tweetrender.user.avatars.small);
-    console.log(tweetrender.user.handle);
-    console.log(tweetrender.content.text);
-    console.log(tweetrender.created_at);
-    //return each keyvalue
-    
+  for (var tweetdeets of tweets) {
+//the paramater passing through the render tweets function is what you also use as the word for looping through in the for of
+    createTweetElement(tweetdeets);
+    tweetrender = tweetdeets;
+    console.log(tweetrender);
+    username = tweetrender.user.name;
+    userhandle = tweetrender.user.handle;
+    useravatar = tweetrender.user.avatars.small;
+    contenttext = tweetrender.content.text;
+    createdate = tweetrender.created_at;
+
 
   }
-
+ 
 }
 
-renderTweets(data);
+// $(document).ready(function(){
+//   renderTweets(data);
+// }) /// this is important --- remember to wrap your function call - if it's using jquery - in this document ready function that is jquery specific
 
 
-// create reusable ajax request
+//targeting this:
 
-// const getQuotes = () => {
-//   //an array of objects
-// //format of tweet object
+//<input type="submit" class="tweetsubmit" value="Tweet">
 
-// // {
-//     // id: <this is the id of the comment>
-//     // comment:
+//It will use jQuery to make a request to /tweets and receive the array of tweets as JSON.
+
+$(document).ready(function(){
+  // var $button = $('.tweetsubmit');
+  // $button.on('click', function (event) {
+  //   event.preventDefault();
+  //   console.log('Button clicked, performing ajax call...');
+  
+  // });
+  function loadtweets(){
+    const options = { 
+      url: "http://localhost:8080/tweets",
+      method: 'GET',
+      dataType: 'json'
+      //key names are pre-defined/necessary wordings
+    }
+
+    $.ajax(options)
+    .done(function (response) {
+      console.log(response);
+      renderTweets(response);
+    }).fail(function(error){
+      console.log('error');
+    }).always(function(){
+      console.log('request completed');
+    });
+
+    //done fail always are convention namings and it is expecting a response to parse
     
-//     // </this>
+    //this gets the tweets from the server
 
-// // }
-//   const createTweet = //receive tweet object Comment.obj => {
-//     //want to return the tweet
-   
-//   //}
+    //done - once it gets a response it's executed
+    
+  }
 
-// }
-//call back will receive the response from the server 
-
-//responsible for taking in an array of tweet objects
-
-// function renderTweets(tweets) {
-
-//   tweets.forEach( function())
-// // loops through tweets
-//     // calls createTweetElement for each tweet
-//     // takes return value and appends it to the tweets container
-
-// }
-
-// function createTweetElement(tweet) {
-//   let $tweet = $('#tweet-container').addClass('tweet');
-//   // ...
-//   return $tweet;
-// }
-
-
-
-
-/*
-$(document).ready(function() {
-createTweetElement(tweety_the_tweet);
+  loadtweets()
 });
 
-// responsible for taking in an array of tweet objects
-
-function renderTweets (/*arryofobj*/
-
-//passes that whole jquery thing through the function
 
 
-//$(#tweets-container).append(/*arryofobj*/);
+//the json structure is going to get saved in response
 
-//let $tweet = $('<article>').addClass('tweet');renderTweets(apples)*/
+
+
+
+
+//The one difference is that you are requesting and handling a JSON response instead of an HTML response.
