@@ -3,7 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
+ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -17,22 +17,51 @@ html {
 body {
   margin: 0;
   color: #244751;
-  background-color: whitel
   font-family: 'Open Sans', sans-serif;
   text-align: left;
+  background-color: #eee;
   
 }
 
 main {
-  width: 450px;
-  height: 180px;
-  background-color:  #eee;
   text-align: center;
   margin: 0 auto;
 }
 
-main.container{
+section {
+  text-align: center;
+  margin: 0 auto;
+}
+
+section.box {
+  width: 450px;
+  height: 180px;
+  background-color:  #eee;
   border-radius: 25px;
+  margin-bottom: 0.7em;
+  border: 1px solid grey;
+}
+article {
+  text-align: center;
+  margin: 0 auto;
+}
+
+article.box2 {
+  width: 450px;
+  height: 180px;
+  background-color:  #eee;
+  border-radius: 25px;
+  margin-bottom: 0.5em;
+  
+  border: 1px solid grey;
+}
+
+
+main.container{
+width: 500px;
+height: 100%;
+background-color: white;
+  
 }
 
 p.textpadding  {
