@@ -22,11 +22,17 @@ var tweety_the_tweet = {
 
 // var exacttime = moment(1461116232227).startOf('hour').fromNow(); 
 
-// console.log(exacttime);
+// function datecheck (){
+//   console.log(tweets.created_at + "APPPPPPLLLEEESSSS")
+// var datref = moment(new Date (tweets.created_at), "YYYYMMDD").fromNow()
+// console.log(dateref); 
+// }
 
+// datecheck();
 
 
 function createTweetElement (tweets) {
+
   var testkey = tweety_the_tweet.content.text;
   $('#tweets-container').append(
     `<article class="box2">
@@ -45,9 +51,12 @@ function createTweetElement (tweets) {
 }
 
 
-$(document).ready(function() {
-createTweetElement(tweety_the_tweet)
-});
+
+
+
+// $(document).ready(function() {
+// createTweetElement(tweety_the_tweet)
+// });
 
 // // ---------------------
 const data = [
@@ -108,12 +117,7 @@ function renderTweets(tweets) {
   for (var tweetdeets of tweets) {
     createTweetElement(tweetdeets);
     tweetrender = tweetdeets;
-    console.log(tweetrender);
-    username = tweetrender.user.name;
-    userhandle = tweetrender.user.handle;
-    useravatar = tweetrender.user.avatars.small;
-    contenttext = tweetrender.content.text;
-    createdate = tweetrender.created_at;
+   
   }
 }
 
@@ -122,18 +126,13 @@ function renderTweets(tweets) {
 // }) /// this is important --- remember to wrap your function call - if it's using jquery - in this document ready function that is jquery specific
 
 $(document).ready(function(){
-  // var $button = $('.tweetsubmit');
-  // $button.on('click', function (event) {
-  //   event.preventDefault();
-  //   console.log('Button clicked, performing ajax call...');
   
-  // });
   function loadtweets(){
     const options = { 
       url: "http://localhost:8080/tweets",
       method: 'GET',
       dataType: 'json'
-      //key names are pre-defined/necessary wordings
+
     }
     $.ajax(options)
     .done(function (response) {
