@@ -26,12 +26,12 @@ var tweety_the_tweet = {
 //   console.log(tweets.created_at + "APPPPPPLLLEEESSSS")
 // var datref = moment(new Date (tweets.created_at), "YYYYMMDD").fromNow()
 // console.log(dateref); 
-// }
 
-// datecheck();
 
 
 function createTweetElement (tweets) {
+
+  //Consider the jQuery .serialize() function, which turns the form data into a query string. This serialized data should be sent to the server in the body field of the AJAX POST request.
 
   var testkey = tweety_the_tweet.content.text;
   $('#tweets-container').append(
@@ -51,14 +51,6 @@ function createTweetElement (tweets) {
 }
 
 
-
-
-
-// $(document).ready(function() {
-// createTweetElement(tweety_the_tweet)
-// });
-
-// // ---------------------
 const data = [
   {
     "user": {
@@ -114,10 +106,11 @@ function renderTweets(tweets) {
   var contenttext
   var createdate
 
+  
+
   for (var tweetdeets of tweets) {
     createTweetElement(tweetdeets);
     tweetrender = tweetdeets;
-   
   }
 }
 
@@ -126,13 +119,112 @@ function renderTweets(tweets) {
 // }) /// this is important --- remember to wrap your function call - if it's using jquery - in this document ready function that is jquery specific
 
 $(document).ready(function(){
+  console.log('apples')
+  var $formsubmit = $('.tweetform');
+  console.log($formsubmit  + "appppplllesssss")
+  //console.log( $(.tweetresponse).value
+
+  var textvalue
+
+  $formsubmit.on('submit', function (event) {
+  event.preventDefault();
+  //console.log( $( this ).serialize() );
+  //let form_values = $( this ).serialize(); another option if you don't create the object yourself in the post
+  textvalue = $(this).find(".tweettextarea").val();
+  var textlength = textvalue.length;
+  //return textvalue
+
+  addnewTweet (textvalue);
+
+  if (textvalue !== '' || textvalue !== undefined && textlength <= 140){
+    //console.log(textvalue)
+// //   const options = { 
+// //     url: "",
+// //     method: 'POST',
+// //     data: $(this).serialize
+//   })
+// // function posttweets(options){}
+  
+// //   else { }
+  
+//createTweetElement()
+ }
+});
+
+
+//console.log(textvalue + "apples")
+
+
+//var textvalue2 = $formsubmit.find(".tweettextarea").val();
+
+
+
+  function addnewTweet(input){
+
+    console.log(input);
+    
+    const postoptions = { 
+            url: "http://localhost:8080/tweets",
+            method: 'POST',
+            data: {
+              text: input
+              // the server needs things in an object form where as if only 'input' was past through it was a bare string
+
+            }
+            
+  }
+
+  $.ajax(postoptions)
+    .done(function (response) {
+    
+      //console.log(response);
+      createTweetElement(response)
+  ///get the object from the server //
+  //create tweet element (response)
+  //prepend the tweet element from your call to the list of tweets
+      //renderTweets(response);
+    }).fail(function(error){
+      console.log('error');
+    }).always(function(){
+      console.log('request completed');
+    });
+
+}
+
+
+ 
+//  function posttweets(){
+
+//   const postoptions = { 
+//         url: "${ROOT_URL}/tweets",
+//         method: 'POST',
+//         data: $(this).serialize
+//   }
+
+//   $.ajax(postoptions)
+//   .done(function (response) {
+//     //console.log(response);
+// ///get the object from the server //
+// //create tweet element (response)
+// //prepend the tweet element from your call to the list of tweets
+//     renderTweets(response);
+//   }).fail(function(error){
+//     console.log('error');
+//   }).always(function(){
+//     console.log('request completed');
+//   });
+// };
+
+
+
+  
+  
   
   function loadtweets(){
     const options = { 
       url: "http://localhost:8080/tweets",
       method: 'GET',
       dataType: 'json'
-
     }
     $.ajax(options)
     .done(function (response) {
@@ -146,5 +238,5 @@ $(document).ready(function(){
   };
   loadtweets()
 
-});
+})
 
