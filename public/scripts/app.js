@@ -4,40 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// var tweety_the_tweet = {
-//   user: {
-//     name: 'Newton',
-//     avatars: {
-//       small:   'https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png',
-//       regular: 'https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png',
-//       large:   'https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png'
-//     },
-//     handle: '@SirIsaac'
-//   },
-//   content: {
-//     text: 'If I have seen further it is by standing on the shoulders of giants'
-//   },
-//   created_at: 1461116232227
-// };
-
-// var exacttime = moment(1461116232227).startOf('hour').fromNow(); 
-// console.log(exacttime);
-
-// let now = moment();
-// var exacttime2 = moment(now)
-
-// function datecheck (){
-//   console.log(tweets.created_at + "APPPPPPLLLEEESSSS")
-// var datref = moment(new Date (tweets.created_at), "YYYYMMDD").fromNow()
-// console.log(dateref); 
-
-//<script type="text/javascript" src="./scripts/moment.js"></script>
-
-
-
 function createTweetElement (tweets) {
-
-  //var testkey = tweety_the_tweet.content.text;
   $('#tweets-container').prepend(
     `<article class="box2">
     <header id ="titlespace2">
@@ -53,8 +20,6 @@ function createTweetElement (tweets) {
   );
 }
 
-
-
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -65,9 +30,6 @@ function timestamp (tweets_created_at){
   var clock = moment(new Date (tweets_created_at), "YYYYMMDD").fromNow()
   return clock; 
 }
-
-
-
 
 function renderTweets(tweets) {
   var username
@@ -82,75 +44,46 @@ function renderTweets(tweets) {
   }
 }
 
-// $(document).ready(function(){
-//   renderTweets(data);
-// }) /// this is important --- remember to wrap your function call - if it's using jquery - in this document ready function that is jquery specific
-
 $(document).ready(function(){
 
   var $formsubmit = $('.tweetform');
+
   $formsubmit.on('submit', function (event) {
-  event.preventDefault();
-  //console.log( $( this ).serialize() );
-  //let form_values = $( this ).serialize(); another option if you don't create the object yourself in the post
-  var textvalue = $(this).find(".tweettextarea").val();
-  var textlength = textvalue.length;
-
-  // function resettextarea (clearthistext){
-  //   clearthistext = '';
-
-  // }
-
-  if (textvalue !== '' && textvalue !== undefined && textlength < 140){
-
-    addnewTweet (textvalue);
-    //resettextarea(textvalue);
-
- } else if (textvalue === '' || textvalue === undefined){
- alert(`Please write something before posting` )
- //$(.displayerror).append(<p> Please write something before posting </p>)
-  
-} 
-else {
-  alert(`Please write something less then 140 characters` )
-}
-});
-
-
-//console.log(textvalue + "apples")
-//var textvalue2 = $formsubmit.find(".tweettextarea").val();
+    event.preventDefault();
+    var textvalue = $(this).find(".tweettextarea").val();
+    var textlength = textvalue.length;
+    
+    if (textvalue !== '' && textvalue !== undefined && textlength < 140){
+      addnewTweet (textvalue);
+    } else if (textvalue === '' || textvalue === undefined){
+      //alert(`Please write something before posting` )
+      //$(.displayerror).append(<p> Please write something before posting </p>)
+    } else {
+      //alert(`Please write something less then 140 characters` )
+    }
+    $(this).find(".tweettextarea").val('');
+  });
 
   function addnewTweet(input){
-
     console.log(input);
     
     const postoptions = { 
-            url: "http://localhost:8080/tweets",
-            method: 'POST',
-            data: {
-              text: input
-              // the server needs things in an object form where as if only 'input' was past through it was a bare string
-
-            }       
-  }
-
-  $.ajax(postoptions)
-    .done(function (response) {
+      url: "http://localhost:8080/tweets",
+      method: 'POST',
+      data: {
+        text: input
+      }
+    };
     
-      //console.log(response);
+    $.ajax(postoptions)
+    .done(function (response) {
       createTweetElement(response)
-  ///get the object from the server //
-  //create tweet element (response)
-  //prepend the tweet element from your call to the list of tweets
-      //renderTweets(response);
     }).fail(function(error){
       console.log('error');
     }).always(function(){
       console.log('request completed');
     });
-
-}
-
+  }
 
   function loadtweets(){
     const options = { 
@@ -167,27 +100,8 @@ else {
     }).always(function(){
       console.log('request completed');
     });
-  };
-  loadtweets()
-
-  // function loadtweets(){
-  //   const options = { 
-  //     url: "http://localhost:8080/tweets",
-  //     method: 'GET',
-  //     dataType: 'json'
-  //   }
-  //   $.ajax(options)
-  //   .done(function (response) {
-  //     console.log(response);
-  //     renderTweets(response);
-  //   }).fail(function(error){
-  //     console.log('error');
-  //   }).always(function(){
-  //     console.log('request completed');
-  //   });
-  // };
-  // loadtweets()
-
+  }
+  loadtweets();
 })
 
 
