@@ -21,11 +21,17 @@
 // };
 
 // var exacttime = moment(1461116232227).startOf('hour').fromNow(); 
+// console.log(exacttime);
+
+// let now = moment();
+// var exacttime2 = moment(now)
 
 // function datecheck (){
 //   console.log(tweets.created_at + "APPPPPPLLLEEESSSS")
 // var datref = moment(new Date (tweets.created_at), "YYYYMMDD").fromNow()
 // console.log(dateref); 
+
+//<script type="text/javascript" src="./scripts/moment.js"></script>
 
 
 
@@ -41,18 +47,25 @@ function createTweetElement (tweets) {
     </header>
     <div class="tweetresponse">${escape(tweets.content.text)}
     </div>
-    <footer id="tweetfooter"><p class="tinytype">${tweets.created_at}</p></footer>
+    <footer id="tweetfooter"><p class="tinytype">${timestamp(tweets.created_at)}</p></footer>
   </article>
   </section>`
   );
 }
 
-//E
+
 
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+}
+
+function timestamp (tweets_created_at){
+
+  var clock = moment(new Date (tweets_created_at), "YYYYMMDD").fromNow()
+  return clock; 
+
 }
 
 
@@ -154,23 +167,23 @@ else {
   };
   loadtweets()
 
-  function loadtweets(){
-    const options = { 
-      url: "http://localhost:8080/tweets",
-      method: 'GET',
-      dataType: 'json'
-    }
-    $.ajax(options)
-    .done(function (response) {
-      console.log(response);
-      renderTweets(response);
-    }).fail(function(error){
-      console.log('error');
-    }).always(function(){
-      console.log('request completed');
-    });
-  };
-  loadtweets()
+  // function loadtweets(){
+  //   const options = { 
+  //     url: "http://localhost:8080/tweets",
+  //     method: 'GET',
+  //     dataType: 'json'
+  //   }
+  //   $.ajax(options)
+  //   .done(function (response) {
+  //     console.log(response);
+  //     renderTweets(response);
+  //   }).fail(function(error){
+  //     console.log('error');
+  //   }).always(function(){
+  //     console.log('request completed');
+  //   });
+  // };
+  // loadtweets()
 
 })
 
