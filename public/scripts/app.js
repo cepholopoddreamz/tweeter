@@ -55,7 +55,10 @@ $(document).ready(function(){
     
     if (textvalue !== '' && textvalue !== undefined && textlength < 140){
       addnewTweet (textvalue);
+      $(".errordisplay p").removeClass("errormessage");
     } else if (textvalue === '' || textvalue === undefined){
+      $(".errordisplay p").addClass("errormessage")
+      $(".errormessage").empty().append("<p>please write something before tweeting</p>");
       //alert(`Please write something before posting` )
       //$(.displayerror).append(<p> Please write something before posting </p>)
     } else {

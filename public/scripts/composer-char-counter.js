@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  var text$ = document.getElementById('hittest');
-  console.log('hellllllllooooooo');
+  var text$ = $('.tweettextarea');
+  console.log('oranges');
 
-  $("article.box2").on('focus', function( event ) {
-    //console.log('inside');
-  });
+  // $("article.box2").on('focus', function( event ) {
+  //   //console.log('inside');
+  // });
 
   $("article.box2").hover(function(){
     console.log('hovering')
@@ -35,31 +35,32 @@ $(document).ready(function() {
 
 
 
-  $(text$).on('focus', function( event ) {
-    //console.log('inside');
-  });
+  // $(text$).on('focus', function( event ) {
+  //   //console.log('inside');
+  // });
 
 
-  $(text$).on('blur', function( event ) {
-    console.log('outside');   
-  });
+  // $(text$).on('blur', function( event ) {
+  //   console.log('outside');   
+  // });
+
+  console.log($(".tweettextarea").val());
+
+//var text$ = $('.tweettextarea');
 
   $(text$).on('keyup', function( event ) {
-
+    //this isn't a key up on the tweet button, it's on the composing area. i need to tie the errors to that submit attempt
     var counter = (event.target.value.length);
-    if (counter === 0 || typeof counter === 'undefined'){
-      alert(' you need to enter some content');
-    }
-    else if (counter <= 140) {
-      //let countertxt = document.getElementById("textcounter").innerHTML = counter;
-      $('#textcounter').text(counter);
-      //return countertxt;
+    
+    if (counter <= 140) {
+      $('#textcounter').text(counter).css('color','black');
+      $(".errordisplay p").removeClass("errormessage").empty();
       console.log('allowed letters')
-    }
-    else {
-      let countertxt = $('#textcounter').text(139 - counter).css('color','red');
-      //console.log('toomanyletters')
-      alert(' tweet content is too long');
+    } else {
+      let countertxt = $('#textcounter').text(140 - counter).css('color','red');
+      //alert(' tweet content is too long');
+      $(".errordisplay p").addClass("errormessage")
+      $(".errormessage").empty().append("<p>tweet content is too long</p>");
     }
   })
 
@@ -69,4 +70,30 @@ $(document).ready(function() {
     });
   });
 
+  // function errorcheck(typeoferror){
+
+  // }
+
+  $(".tweetsubmit").on('click', function( event ) {
+    console.log('apples')
+    // $( ".tweettextarea" ).focus().select().addClass("errormessage") 
+  })
 })
+  
+    // $( "#other").click(function() {
+    //   $( "#target" ).select();
+    // });
+
+
+
+// function errorcheck(typeoferror){
+//   while (typeoferror === 'toomany'){
+//     $(".errordisplay p").append( "exceeded max value of 140 char" )
+//   }
+//   else if(typeoferror === 'toofew'){
+//   $(".errordisplay p").append( "can't post an empty tweet")
+//   }
+//   else {
+//     $(".errordisplay p").append("")
+//   }
+// }

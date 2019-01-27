@@ -109,3 +109,25 @@ hr {
   font-size: 12px;
   line-height: 0.6em;
  }
+
+ span.headerbuttons{
+    float: right;
+    margin-top: 1em;
+    padding-right: 10px;
+    color: #e8fdff;
+    line-height: 2em;
+    font-size: 1.2em;
+    vertical-align: top;
+    opacity: 0.8;
+   
+ }
+
+ #composebt button{
+   border: 1px solid grey;
+ }
+
+ .errormessage {
+   color: red;
+   font-size: 12px;
+   line-height: 0em;
+ }
