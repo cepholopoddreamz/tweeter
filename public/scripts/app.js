@@ -62,10 +62,8 @@ function escape(str) {
 }
 
 function timestamp (tweets_created_at){
-
   var clock = moment(new Date (tweets_created_at), "YYYYMMDD").fromNow()
   return clock; 
-
 }
 
 
@@ -98,10 +96,15 @@ $(document).ready(function(){
   var textvalue = $(this).find(".tweettextarea").val();
   var textlength = textvalue.length;
 
+  // function resettextarea (clearthistext){
+  //   clearthistext = '';
+
+  // }
+
   if (textvalue !== '' && textvalue !== undefined && textlength < 140){
 
     addnewTweet (textvalue);
-    console.log('valid value')
+    //resettextarea(textvalue);
 
  } else if (textvalue === '' || textvalue === undefined){
  alert(`Please write something before posting` )

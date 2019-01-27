@@ -40,6 +40,7 @@ section.box {
   border-radius: 25px;
   margin-bottom: 0.7em;
   border: 1px solid grey;
+  display: none;
 }
 article {
   text-align: center;
@@ -52,15 +53,14 @@ article.box2 {
   background-color:  #eee;
   border-radius: 25px;
   margin-bottom: 0.5em;
-  
   border: 1px solid grey;
 }
-
 
 main.container{
 width: 500px;
 height: 100%;
 background-color: white;
+padding-top: 95px;
   
 }
 
