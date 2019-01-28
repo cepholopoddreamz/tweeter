@@ -7,7 +7,7 @@ Tweeter is a simple, single-page Twitter clone. This project is a first attempt 
 - Express
 - Node 5.10.x or above
 
-###Getting Started: 
+### Getting Started: 
 
 Go to http://localhost:8080/ in your browser.
 
