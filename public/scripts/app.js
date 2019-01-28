@@ -1,9 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 function createTweetElement (tweets) {
   $('#tweets-container').prepend(
     `<article class="box2">
@@ -50,17 +44,13 @@ $(document).ready(function(){
       
       addnewTweet (textvalue);
       errortest(false);
-        //$(".errordisplay").empty();
       $('#textcounter').text(140);
     } else if (textvalue === '' || textvalue === undefined){
       errortest('error1');
-        // $(".errordisplay").empty().append("<p>please write something before tweeting</p>")
     } else if (textlength > 140){
       errortest('error2');
-      // $(".errordisplay").empty().append("<p>tweet content is too long</p>");
       $('#textcounter').text(140).css('color','black');
     } else {
-        //$(".errordisplay").empty();
   }
   $(this).find(".tweettextarea").val('');
 });
@@ -85,7 +75,6 @@ function errortest (trueorfalse){
 }
 
   function addnewTweet(input){
-    console.log(input);
     const postoptions = { 
       url: "http://localhost:8080/tweets",
       method: 'POST',
@@ -98,9 +87,7 @@ function errortest (trueorfalse){
     .done(function (response) {
       createTweetElement(response)
     }).fail(function(error){
-      console.log('error');
     }).always(function(){
-      console.log('request completed');
     });
   }
 
@@ -112,12 +99,9 @@ function errortest (trueorfalse){
     }
     $.ajax(options)
     .done(function (response) {
-      console.log(response);
       renderTweets(response);
     }).fail(function(error){
-      console.log('error');
     }).always(function(){
-      console.log('request completed');
     });
   }
   loadtweets();
