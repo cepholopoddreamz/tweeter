@@ -14,7 +14,7 @@ function createTweetElement (tweets) {
     </header>
     <div class="tweetresponse">${escape(tweets.content.text)}
     </div>
-    <footer id="tweetfooter"><p class="tinytype">${timestamp(tweets.created_at)}</p></footer>
+    <footer id="tweetfooter"><span class="leftside"><p class="tinytype">${timestamp(tweets.created_at)}</p></span><span class="rightside"><img class="flaglikeretweet" src="/images/likeretweet.gif"></span></footer>
   </article>
   </section>`
   );
@@ -32,11 +32,6 @@ function timestamp (tweets_created_at){
 }
 
 function renderTweets(tweets) {
-  var username
-  var userhandle
-  var useravatar
-  var contenttext
-  var createdate
 
   for (var tweetdeets of tweets) {
     createTweetElement(tweetdeets);
@@ -45,9 +40,7 @@ function renderTweets(tweets) {
 }
 
 $(document).ready(function(){
-
   var $formsubmit = $('.tweetform');
-
   $formsubmit.on('submit', function (event) {
     event.preventDefault();
     var textvalue = $(this).find(".tweettextarea").val();
@@ -55,16 +48,27 @@ $(document).ready(function(){
     
     if (textvalue !== '' && textvalue !== undefined && textlength < 140){
       addnewTweet (textvalue);
-      $(".errordisplay p").removeClass("errormessage");
+      // $(".errordisplay p").removeClass("errormessage");
+      $( ".errordisplay" ).slideToggle( "slow", function() {
+        $(".errordisplay").empty();
+        $('#textcounter').text(140);
+      });
     } else if (textvalue === '' || textvalue === undefined){
-      $(".errordisplay p").addClass("errormessage")
-      $(".errormessage").empty().append("<p>please write something before tweeting</p>");
-      //alert(`Please write something before posting` )
-      //$(.displayerror).append(<p> Please write something before posting </p>)
+      $( ".errordisplay" ).slideToggle( "slow", function() {
+        $(".errordisplay").empty().append("<p>please write something before tweeting</p>")
+      });
+    } else if (textlength > 140){
+      $( ".errordisplay" ).slideToggle( "slow", function() {
+        $(".errordisplay").empty().append("<p>tweet content is too long</p>");
+        $('#textcounter').text(140);
+      });
     } else {
-      //alert(`Please write something less then 140 characters` )
-    }
+      $( ".errordisplay" ).slideToggle( "slow", function() {
+        $(".errordisplay").empty();
+    });
+  }
     $(this).find(".tweettextarea").val('');
+    
   });
 
   function addnewTweet(input){

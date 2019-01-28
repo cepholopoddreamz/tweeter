@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,700i" rel="stylesheet">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="./styles/layout-b.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/layout.css" type="text/css" />
 
      <!-- customized CSS -->
      <link rel="stylesheet" href="./styles/nav.css" type="text/css" />
@@ -18,14 +18,7 @@
      <!-- tweet CSS -->
      <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" />
 
-    <!-- External JS -->
-    <script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
-
-    <!-- App JS -->
-    <script type="text/javascript" src="./scripts/app.js"></script>
-
-       <!-- Character Counting -->
-       <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+  
 
   </head>
 
@@ -35,6 +28,7 @@
     <nav id="nav-bar">
       <img class="logo" src="images/bird.png">
       <span class="header">Tweeter</span>
+      <span class="headerbuttons"><button id ="composebt">Compose</button></span>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -43,9 +37,11 @@
         <header class ="titlespace">
         <h2>Compose Tweet</h2>
         <hr>
+        <div class="errordisplay"></div>
         </header>
         <form action="/tweets/" method="POST" class="tweetform">
-          <textarea name="text" class="tweettextarea" id= "hittest" placeholder="What are you humming about?"></textarea>
+          <textarea name="text" class="tweettextarea"  placeholder="What are you humming about?"></textarea> 
+
         <footer class="buttonsbelow">
           <input type="submit" class="tweetsubmit" value="Tweet">
           <span class="counter" id="textcounter">140</span>
@@ -55,16 +51,28 @@
       <section id="tweets-container">
       <article class="box2">
       <header id ="titlespace2">
-        <img class="userlogo" src="images/userlogo.png">
+        <img class="userlogo" src="/images/userlogo.png">
         <h2 id="username">User Name</h2>
         <span class="id">username</span>
       </header>
       <div class="tweetresponse">
         somethingsom ethingsometh ingsomethingsometh ingsomethingso mething
       </div>
-      <footer id="tweetfooter"><p class="tinytype">empty footer</p></footer>
+      <footer id="tweetfooter"><span class="leftside"><p class="tinytype">empty footer</p></span><span class="rightside"><img class="flaglikeretweet" src="/images/likeretweet.gif"></span></footer>
     </article> 
     </section>
   </main>
+    <!-- External JS -->
+    <script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="./scripts/app.js"></script>
+
+       <!-- Character Counting -->
+       <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+
+       <!-- Date reference -->
+       <script type="text/javascript" src="./scripts/moment.js"></script>
+
   </body>
 </html>

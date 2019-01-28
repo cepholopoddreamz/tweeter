@@ -2,22 +2,38 @@ $(document).ready(function() {
   var text$ = $('.tweettextarea');
   console.log('oranges');
 
- 
+  // $('.box2').find("#titlespace2").animate({opacity: 0.7}, 300);
+  // $('.box2').find("#tweetfooter").animate({opacity: 0.7}, 300);
+  // $('.box2').find('h2.tweetresponse').animate({opacity: 1.0}, 300);
 
-  $(document).on('mouseenter', ".box2",
+
+  $(document).on('mouseenter', "span.rightside",
   function(){
-    console.log('entering')
-
-    $(this).animate({opacity: 0.7}, 300);
-  //   $('#titlespace2').animate({opacity: 0.7}, 300);
-  // //   $('#tweetfooter').animate({opacity: 1.0}, 300);
-  //   $('h2.tweetresponse').animate({opacity: 1.0}, 300);
+      $(this).animate({opacity: 1.0}, 300);
   });
+
+  $(document).on('mouseleave', "span.rightside",
+  function(){
+      $(this).animate({opacity: 0.0}, 300);
+    
+  });
+ 
 
   $(document).on('mouseleave', ".box2",
   function(){
-    console.log('exiting')
-    $(this).animate({opacity: 1.0}, 300);
+    //console.log('entering')
+    $(this).find("#titlespace2").animate({opacity: 0.7}, 300);
+    $(this).find("#tweetfooter").animate({opacity: 0.7}, 300);
+    $(this).find('h2.tweetresponse').animate({opacity: 1.0}, 300);
+  });
+
+  $(document).on('mouseenter', ".box2",
+  function(){
+    //console.log('exiting')
+    $(this).find("#titlespace2").animate({opacity: 1.0}, 300);
+    $(this).find("#tweetfooter").animate({opacity: 1.0}, 300);
+    $(this).find('h2.tweetresponse').animate({opacity: 1.0}, 300);
+  
   });
 
   // $("article.box2").on('focus', function( event ) {
@@ -95,6 +111,7 @@ $(document).on('mouseleave','p',
 
   $(".tweetsubmit").on('click', function( event ) {
     console.log('apples')
+    
     // $( ".tweettextarea" ).focus().select().addClass("errormessage") 
   })
 })

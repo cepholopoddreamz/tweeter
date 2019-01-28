@@ -39,6 +39,7 @@ span.id {
   padding-left: 1.6em;
   padding-bottom: 0em;
   padding-top: 0.8em;
+  opacity: 0.7;
   /*text-decoration: underline;*/
 }
 
@@ -73,6 +74,7 @@ span.id {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
   background:#fff;
+  opacity: 0.7;
 }
 
 hr {
@@ -126,8 +128,28 @@ hr {
    border: 1px solid grey;
  }
 
- .errormessage {
+ .errordisplay {
    color: red;
    font-size: 12px;
    line-height: 0em;
+   display: none;
+   padding: 0em;
+   margin: 0em;
+ }
+
+ .flaglikeretweet {
+  float: right;
+  height: 15px;
+  line-height: 0.6em;
+ }
+ span.rightside {
+   float: right;
+   padding-top: 0.5em;
+   opacity: 0;
+
+ }
+
+ span.leftside {
+  float:left;
+
  }
