@@ -47,33 +47,38 @@ $(document).ready(function(){
     var textlength = textvalue.length;
     
     if (textvalue !== '' && textvalue !== undefined && textlength < 140){
+      errortest(false);
       addnewTweet (textvalue);
-      // $(".errordisplay p").removeClass("errormessage");
-      $( ".errordisplay" ).slideToggle( "slow", function() {
-        $(".errordisplay").empty();
-        $('#textcounter').text(140);
-      });
+        //$(".errordisplay").empty();
+      $('#textcounter').text(140);
     } else if (textvalue === '' || textvalue === undefined){
-      $( ".errordisplay" ).slideToggle( "slow", function() {
+      errortest(true);
         $(".errordisplay").empty().append("<p>please write something before tweeting</p>")
-      });
     } else if (textlength > 140){
-      $( ".errordisplay" ).slideToggle( "slow", function() {
-        $(".errordisplay").empty().append("<p>tweet content is too long</p>");
-        $('#textcounter').text(140);
+      errortest(true);
+      $(".errordisplay").empty().append("<p>tweet content is too long</p>");
+      $('#textcounter').text(140);
+    } else {
+        //$(".errordisplay").empty();
+  }
+  $(this).find(".tweettextarea").val('');
+});
+
+function errortest (trueorfalse){
+  $(".errordisplay").slideUp( "slow", function() {
+    if (trueorfalse === true){
+      $( ".errordisplay" ).slideDown( "slow", function() {
       });
     } else {
-      $( ".errordisplay" ).slideToggle( "slow", function() {
+      $( ".errordisplay" ).slideUp( "slow", function() {
         $(".errordisplay").empty();
-    });
-  }
-    $(this).find(".tweettextarea").val('');
-    
+      });
+    }
   });
+}
 
   function addnewTweet(input){
     console.log(input);
-    
     const postoptions = { 
       url: "http://localhost:8080/tweets",
       method: 'POST',
