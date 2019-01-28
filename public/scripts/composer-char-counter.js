@@ -49,6 +49,14 @@ $(document).ready(function(){
     });
   });
 
+  $("span.headerbuttons").mouseenter(function() {
+    $( this ).animate({opacity: 1.0}, 300);
+  });
+
+  $("span.headerbuttons").mouseleave(function() {
+    $( this ).animate({opacity: 0.7}, 300);
+  });
+
   $(".tweetsubmit").on('click', function( event ) {
     console.log('apples')
   });
