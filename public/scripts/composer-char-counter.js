@@ -2,26 +2,56 @@ $(document).ready(function() {
   var text$ = $('.tweettextarea');
   console.log('oranges');
 
+ 
+
+  $(document).on('mouseenter', ".box2",
+  function(){
+    console.log('entering')
+
+    $(this).animate({opacity: 0.7}, 300);
+  //   $('#titlespace2').animate({opacity: 0.7}, 300);
+  // //   $('#tweetfooter').animate({opacity: 1.0}, 300);
+  //   $('h2.tweetresponse').animate({opacity: 1.0}, 300);
+  });
+
+  $(document).on('mouseleave', ".box2",
+  function(){
+    console.log('exiting')
+    $(this).animate({opacity: 1.0}, 300);
+  });
+
   // $("article.box2").on('focus', function( event ) {
-  //   //console.log('inside');
+  //   console.log('hovering over box2');
+
+  
+
+  $(document).on('mouseenter','p',
+  function(){
+    $(this).css("color", "red");
+  }
+);
+$(document).on('mouseleave','p',
+  function(){
+    $(this).css("color", "black");
+  }
+);
+
+  // $("article.box2").hover(function(){
+  //   console.log('hovering')
+  //   $('#titlespace2').animate({opacity: 1.0}, 300);
+  //   $('#tweetfooter').animate({opacity: 1.0}, 300);
+  //   $('h2.tweetresponse').animate({opacity: 1.0}, 300);
+
+  //   // $(this).animate({opacity: 1.0}, 300);
+  //   // $(h2.tweetresponse).animate({opacity: 1.0}, 300);
   // });
 
-  $("article.box2").hover(function(){
-    console.log('hovering')
-    $('#titlespace2').animate({opacity: 1.0}, 300);
-    $('#tweetfooter').animate({opacity: 1.0}, 300);
-    $('h2.tweetresponse').animate({opacity: 1.0}, 300);
-
-    // $(this).animate({opacity: 1.0}, 300);
-    // $(h2.tweetresponse).animate({opacity: 1.0}, 300);
-  });
-
-  $("article.box2").mouseleave(function(){
-    console.log('mouse leave')
-    $('#titlespace2').animate({opacity: 0.4}, 300);
-    $('#tweetfooter').animate({opacity: 0.4}, 300);
-    $('h2.tweetresponse').animate({opacity: 1.0}, 300);
-  });
+  // $("article.box2").mouseleave(function(){
+  //   console.log('mouse leave')
+  //   $('#titlespace2').animate({opacity: 0.4}, 300);
+  //   $('#tweetfooter').animate({opacity: 0.4}, 300);
+  //   $('h2.tweetresponse').animate({opacity: 1.0}, 300);
+  // });
 
 
   // $("span.composebt button").hover(function(){
@@ -49,18 +79,11 @@ $(document).ready(function() {
 //var text$ = $('.tweettextarea');
 
   $(text$).on('keyup', function( event ) {
-    //this isn't a key up on the tweet button, it's on the composing area. i need to tie the errors to that submit attempt
     var counter = (event.target.value.length);
-    
     if (counter <= 140) {
-      $('#textcounter').text(counter).css('color','black');
-      $(".errordisplay p").removeClass("errormessage").empty();
-      console.log('allowed letters')
+      $('#textcounter').text(140 - counter).css('color','black');
     } else {
       let countertxt = $('#textcounter').text(140 - counter).css('color','red');
-      //alert(' tweet content is too long');
-      $(".errordisplay p").addClass("errormessage")
-      $(".errormessage").empty().append("<p>tweet content is too long</p>");
     }
   })
 
@@ -69,10 +92,6 @@ $(document).ready(function() {
       $(this).find(".tweettextarea").focus().select()  
     });
   });
-
-  // function errorcheck(typeoferror){
-
-  // }
 
   $(".tweetsubmit").on('click', function( event ) {
     console.log('apples')
