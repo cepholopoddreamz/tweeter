@@ -47,17 +47,18 @@ $(document).ready(function(){
     var textlength = textvalue.length;
     
     if (textvalue !== '' && textvalue !== undefined && textlength < 140){
-      errortest(false);
+      
       addnewTweet (textvalue);
+      errortest(false);
         //$(".errordisplay").empty();
       $('#textcounter').text(140);
     } else if (textvalue === '' || textvalue === undefined){
-      errortest(true);
-        $(".errordisplay").empty().append("<p>please write something before tweeting</p>")
+      errortest('error1');
+        // $(".errordisplay").empty().append("<p>please write something before tweeting</p>")
     } else if (textlength > 140){
-      errortest(true);
-      $(".errordisplay").empty().append("<p>tweet content is too long</p>");
-      $('#textcounter').text(140);
+      errortest('error2');
+      // $(".errordisplay").empty().append("<p>tweet content is too long</p>");
+      $('#textcounter').text(140).css('color','black');
     } else {
         //$(".errordisplay").empty();
   }
@@ -65,9 +66,15 @@ $(document).ready(function(){
 });
 
 function errortest (trueorfalse){
-  $(".errordisplay").slideUp( "slow", function() {
-    if (trueorfalse === true){
+  $(".errordisplay").slideUp( "fast", function() {
+    $(".errordisplay").empty();
+    if (trueorfalse === 'error1'){
       $( ".errordisplay" ).slideDown( "slow", function() {
+        $(".errordisplay").empty().append("<p>please write something before tweeting</p>")
+      });
+    } else if (trueorfalse === 'error2'){
+      $( ".errordisplay" ).slideDown( "slow", function() {
+        $(".errordisplay").empty().append("<p>tweet content is too long</p>");
       });
     } else {
       $( ".errordisplay" ).slideUp( "slow", function() {
