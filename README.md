@@ -1,6 +1,6 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone. This project is a first attempt to work with Jquery, CSS, and Ajax. 
+Tweeter is a simple, single-page Twitter clone. This project is a first attempt to work with Jquery, CSS, and Ajax . 
 
 ## Dependencies
 
