@@ -89,7 +89,7 @@ function errortest (trueorfalse){
 }
 
 
-//adding a new tweet involves creating a new object (aka data') to hold that text input. an object has to be created, rather then a string, for ajax to be able to read it
+//adding a new tweet involves creating a new object (aka data') to hold that text input. an object has to be created, rather then a string, for ajax to be able to pass on something that JSON can read
   function addnewTweet(input){
     const postoptions = { 
       url: "http://localhost:8080/tweets",
