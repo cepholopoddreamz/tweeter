@@ -9,6 +9,6 @@ Tweeter is a simple, single-page Twitter clone. This project is a first attempt 
 
 ### Getting Started: 
 
-Go to http://localhost:8080/ in your browser.
+Go to http://localhost:8080/ in your browser. run npm install, npm start to begin.
 
 !["screen cap of login"](https://github.com/cepholopoddreamz/tweeter/blob/master/public/images/screenshot.png)
