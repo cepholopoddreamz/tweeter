@@ -58,6 +58,6 @@ $(document).ready(function(){
   });
 
   $(".tweetsubmit").on('click', function( event ) {
-    console.log('apples')
+
   });
 });
