@@ -16,7 +16,6 @@ span.id {
   text-align: right;
   float: right;
   margin-right: 1.3em;
-  
 }
 
 
@@ -51,13 +50,13 @@ span.id {
   padding-right: 1.6em;
   width: inherit;
   text-align: left;
-
 }
 
 #tweetfooter {
   padding-left: 1.6em;
   padding-right: 1.6em;
   padding-bottom: 0em;
+  height: 32px;
   width: 448px;
   text-align: left;
   float: left;
@@ -111,8 +110,7 @@ hr {
     line-height: 2em;
     font-size: 1.2em;
     vertical-align: top;
-    opacity: 0.7;
-   
+    opacity: 0.7; 
  }
 
  #composebt button{
@@ -121,27 +119,27 @@ hr {
 
  .errordisplay {
    color: red;
-   font-size: 12px;
+   font-size: 13px;
    line-height: 0em;
    display: none;
    padding: 0em;
    margin: 0em;
+   margin-left: 0.8em;
+   float: left;
  }
 
  .flaglikeretweet {
   float: right;
   height: 15px;
-  line-height: 0.6em;
+  line-height: 0.0em;
  }
  span.rightside {
    float: right;
    padding-top: 0.5em;
    opacity: 0;
-   width:300px;
-
+   width:200px;
  }
 
  span.leftside {
   float:left;
-
  }
